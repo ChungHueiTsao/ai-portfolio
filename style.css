@@ -193,3 +193,10 @@ h2{font-weight:900;font-size:clamp(30px,3.4vw,44px);line-height:1.2;margin-botto
   .detail .card h3{font-size:22px}
   .detail .card{padding:12px 12px 16px}
 }
+
+/* 關於我：四段文字分兩欄流動 */
+.about-body{display:block;columns:2;column-gap:48px}
+.about-body p{break-inside:avoid;margin-bottom:20px}
+.about-body a.inline{color:var(--accent);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.about-body a.inline:hover{color:var(--accent-hover)}
+@media (max-width:900px){.about-body{columns:1}}
