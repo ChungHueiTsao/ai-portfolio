@@ -169,3 +169,27 @@ h2{font-weight:900;font-size:clamp(30px,3.4vw,44px);line-height:1.2;margin-botto
 }
 
 @media (prefers-reduced-motion:no-preference){.js .rv{opacity:0}.js .rv.in{opacity:1}}
+
+/* 作品區：左側選單＋右側內容 */
+.split{display:grid;grid-template-columns:260px minmax(0,1fr);gap:24px;align-items:start}
+.side{position:sticky;top:84px;display:flex;flex-direction:column;gap:6px;background:var(--panel);border-radius:var(--r);padding:10px}
+.side button{display:flex;align-items:center;gap:10px;width:100%;min-height:48px;padding:10px 14px;border:0;border-radius:var(--r-in);background:transparent;color:var(--muted);font:inherit;font-size:16px;font-weight:500;text-align:left;cursor:pointer;touch-action:manipulation;transition:transform .15s}
+.side button:hover{color:var(--fg);transform:translateX(2px)}
+.side button i{flex:none;width:8px;height:8px;border-radius:50%}
+.side button[aria-current="true"]{background:var(--panel-2);color:var(--fg);font-weight:700}
+.detail{min-width:0}
+.detail .card:hover{transform:none}
+.detail .card{padding:20px 20px 24px}
+.detail .card h3{font-size:28px;font-weight:900}
+.detail .explain{flex-direction:row;gap:24px}
+.detail .explain>div{flex:1;min-width:0}
+.detail .card-foot{justify-content:flex-end;margin-top:20px;padding-top:0}
+@media (max-width:900px){
+  .split{grid-template-columns:1fr;gap:16px}
+  .side{position:static;flex-direction:row;overflow-x:auto;padding:8px;scrollbar-width:none}
+  .side::-webkit-scrollbar{display:none}
+  .side button{width:auto;flex:none;white-space:nowrap;min-height:44px}
+  .detail .explain{flex-direction:column;gap:12px}
+  .detail .card h3{font-size:22px}
+  .detail .card{padding:12px 12px 16px}
+}

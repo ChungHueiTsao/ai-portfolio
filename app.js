@@ -3,7 +3,8 @@
   document.documentElement.classList.add('js');
   const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -10% 0px' }) : null;
   document.querySelectorAll('.rv').forEach(el => io ? io.observe(el) : el.classList.add('in'));
-  const grid = document.querySelector('[data-grid]');
+  const side = document.querySelector('[data-side]');
+  const detail = document.querySelector('[data-detail]');
   const filtersEl = document.querySelector('[data-filters]');
   const colorVar = c => `var(--${c})`;
 
@@ -44,26 +45,38 @@
   };
   const statusColor = s => ({ '上線中': 'good', '每天使用': 'good', '可使用': 'good', '持續優化': 'accent', '測試中': 'u1' }[s] || 'muted');
   const openLink = p => p.link
-    ? `<a class="open" href="${p.link}" target="_blank" rel="noopener">開啟作品<span aria-hidden="true">↗</span><span class="sr">（${p.host}，另開新分頁）</span></a>`
-    : `<span class="open off">面試時現場示範</span>`;
+    ? `<a class="btn btn-primary" href="${p.link}" target="_blank" rel="noopener">開啟作品<span aria-hidden="true"> ↗</span><span class="sr">（${p.host}，另開新分頁）</span></a>`
+    : '';
 
+  let cats = {};
+  // 右側：顯示選中的一件作品
+  function showDetail(p) {
+    const cat = cats[p.cat];
+    detail.innerHTML = `<article class="card reveal" id="p-${p.id}">
+      ${media(p, cat)}
+      <div class="card-body">
+        <div class="card-title"><h3>${p.title}</h3><span class="status"><i style="background:${colorVar(statusColor(p.status))}"></i>${p.status}</span></div>
+        <p class="summary">${cat.name}・${p.summary}</p>
+        <div class="explain">
+          <div><h4 class="h-how">AI 怎麼做</h4><p>${p.how}</p></div>
+          <div><h4 class="h-help">帶來的幫助</h4><p>${p.help}</p></div>
+        </div>
+        ${p.link ? `<div class="card-foot">${openLink(p)}</div>` : ''}
+      </div></article>`;
+    side.querySelectorAll('button').forEach(b => b.setAttribute('aria-current', String(b.dataset.id === p.id)));
+  }
+  // 左側：依分類列出作品名稱
   function render(data, catId) {
-    const cats = Object.fromEntries(data.categories.map(c => [c.id, c]));
     const list = data.projects.filter(p => catId === 'all' || p.cat === catId);
-    grid.innerHTML = list.map((p, i) => {
-      const cat = cats[p.cat];
-      return `<article class="card reveal" style="--d:${i * 70}ms" id="p-${p.id}">
-        ${media(p, cat)}
-        <div class="card-body">
-          <div class="card-title"><h3>${p.title}</h3><span class="status"><i style="background:${colorVar(statusColor(p.status))}"></i>${p.status}</span></div>
-          <p class="summary">${p.summary}</p>
-          <div class="explain">
-            <div><h4 class="h-how">AI 怎麼做</h4><p>${p.how}</p></div>
-            <div><h4 class="h-help">帶來的幫助</h4><p>${p.help}</p></div>
-          </div>
-          <div class="card-foot"><span>${cat.name}</span>${openLink(p)}</div>
-        </div></article>`;
-    }).join('');
+    side.innerHTML = list.map(p => `<button type="button" data-id="${p.id}" aria-current="false">
+      <i style="background:${colorVar(cats[p.cat].color)}"></i><span>${p.title}</span></button>`).join('');
+    side.onclick = e => {
+      const b = e.target.closest('button');
+      if (!b) return;
+      showDetail(list.find(p => p.id === b.dataset.id));
+      if (window.matchMedia('(max-width:900px)').matches) detail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    if (list.length) showDetail(list[0]);
   }
 
   function buildFilters(data) {
@@ -83,13 +96,14 @@
   fetch('projects.json', { cache: 'no-cache' })
     .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(data => {
+      cats = Object.fromEntries(data.categories.map(c => [c.id, c]));
       buildFilters(data);
       render(data, 'all');
       const u = document.querySelector('[data-updated]');
       if (u) u.textContent = `作品資料更新日期：${data.updated}`;
     })
     .catch(() => {
-      grid.innerHTML = '<p class="sub">作品清單載入失敗，請重新整理頁面再試一次。</p>';
+      detail.innerHTML = '<p class="sub">作品清單載入失敗，請重新整理頁面再試一次。</p>';
     });
 
   // 聯絡連結還沒提供時，按了只提示
