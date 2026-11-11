@@ -200,3 +200,16 @@ h2{font-weight:900;font-size:clamp(30px,3.4vw,44px);line-height:1.2;margin-botto
 .about-body a.inline{color:var(--accent);font-weight:700;text-decoration:underline;text-underline-offset:3px}
 .about-body a.inline:hover{color:var(--accent-hover)}
 @media (max-width:900px){.about-body{columns:1}}
+
+/* 關於我：條列版（開頭一句、三欄條列、結尾一句） */
+.about-lead,.about-close{font-size:18px;line-height:1.85;color:var(--fg);max-width:60em;margin-top:24px}
+.about-close{color:var(--muted);margin-top:32px}
+.about-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:32px}
+.about-col{background:var(--panel);border-radius:var(--r);padding:26px 26px 28px}
+.about-col h3{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:900;margin-bottom:14px}
+.about-col h3::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--c)}
+.about-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.about-col li{position:relative;padding-left:16px;font-size:16px;line-height:1.7;color:var(--fg)}
+.about-col li::before{content:"";position:absolute;left:0;top:.72em;width:6px;height:6px;border-radius:50%;background:var(--muted)}
+.about-col a.inline{color:var(--accent);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:900px){.about-grid{grid-template-columns:1fr;gap:16px}.about-col{padding:22px 20px}}
