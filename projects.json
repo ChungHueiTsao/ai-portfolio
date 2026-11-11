@@ -1,0 +1,109 @@
+{
+  "updated": "2026-11-11",
+  "categories": [
+    { "id": "product", "name": "產品上線", "color": "u1" },
+    { "id": "data", "name": "數據與自動化", "color": "good" },
+    { "id": "method", "name": "AI 方法與工具", "color": "code" },
+    { "id": "content", "name": "內容與教材", "color": "desk" }
+  ],
+  "projects": [
+    {
+      "id": "timainote",
+      "cat": "product",
+      "title": "Tim 的 AI 筆記",
+      "status": "上線中",
+      "stack": "Astro・Supabase",
+      "summary": "線上課程銷售網站，一個人從規劃做到開賣。",
+      "how": "用 Claude Code 帶一支 AI 團隊（行銷、財務、法務等部門）討論定價、條款和官網，再實作中英雙語、會員和推薦碼。",
+      "help": "不用外包，一個人完成網站、條款草稿和開賣流程，每個決定都有紀錄可查。",
+      "media": { "type": "img", "src": "img/timainote.jpg", "alt": "Tim 的 AI 筆記課程網站首頁" },
+      "link": "https://timainote.com",
+      "host": "timainote.com"
+    },
+    {
+      "id": "eng",
+      "cat": "product",
+      "title": "英文家教 App",
+      "status": "持續優化",
+      "stack": "Claude Artifact・雲端資料",
+      "summary": "iPhone 網頁 App，AI 出題、批改，並追蹤常犯的錯。",
+      "how": "Claude 依照錯題紀錄出題，批改文法和語氣；手機 App 和電腦端共用同一份雲端紀錄。",
+      "help": "每天幾分鐘就能練習，答錯的題目會自動回來重考，進度不用自己整理。",
+      "media": { "type": "ui", "ui": "eng" },
+      "link": null
+    },
+    {
+      "id": "dashboard",
+      "cat": "data",
+      "title": "台股族群儀表板",
+      "status": "上線中",
+      "stack": "Python・Flask",
+      "summary": "追蹤 13 個熱門族群，每個交易日早上自動更新。",
+      "how": "Claude Code 寫資料蒐集、三大法人與事件整理、K 線圖表；介面先由 AI 顧問團提方案再定案。",
+      "help": "開盤前幾分鐘就能看完族群強弱，不用每天翻好幾個網站。",
+      "media": { "type": "img", "src": "img/dashboard.jpg", "alt": "台股族群儀表板首頁" },
+      "link": null
+    },
+    {
+      "id": "analyst",
+      "cat": "data",
+      "title": "AI 台股分析師",
+      "status": "持續優化",
+      "stack": "Python・Claude Skill",
+      "summary": "程式算分，加上 AI 判讀總經消息的兩層分析。",
+      "how": "Python 算技術、基本、籌碼、國際四項分數；Claude 再搜尋地緣政治和央行消息，補上程式看不到的部分。",
+      "help": "一次拿到「數字」和「背景」兩層報告，判斷有依據。",
+      "media": { "type": "ui", "ui": "analyst" },
+      "link": null
+    },
+    {
+      "id": "train",
+      "cat": "method",
+      "title": "指揮 AI 訓練法",
+      "status": "可使用",
+      "stack": "Claude Code Skill",
+      "summary": "把訓練客製 AI 的流程，做成可以重複使用的 Skill。",
+      "how": "真實範例分成訓練、驗證、測試三組，反覆對練、找出錯誤類型再修正，最後用沒看過的題目盲測。",
+      "help": "不管要訓練哪一種 AI，都照同一套步驟，品質可以驗收。",
+      "media": { "type": "ui", "ui": "train" },
+      "link": null
+    },
+    {
+      "id": "flow",
+      "cat": "method",
+      "title": "AI 工作流自動化",
+      "status": "每天使用",
+      "stack": "Claude Code Hooks・LINE",
+      "summary": "LINE 推播、每日提醒，加上 AI 團隊分工制度。",
+      "how": "在 Claude Code 掛上通知：需要我同意或等我回覆時推到 LINE；每天早上自動整理專案待辦。",
+      "help": "離開電腦也不會卡住 AI 的工作，待辦不會漏掉。",
+      "media": { "type": "ui", "ui": "flow" },
+      "link": null
+    },
+    {
+      "id": "guitar",
+      "cat": "content",
+      "title": "吉他新手課程地圖",
+      "status": "上線中",
+      "stack": "HTML・GitHub Pages",
+      "summary": "從認識吉他到自彈自唱，8 個階段的圖解課程。",
+      "how": "Claude 規劃 8 個階段的課程，畫出構造、和弦、節奏的圖解，做成單頁網站。",
+      "help": "第一次教新手就有完整教材，學生照著地圖一步步練。",
+      "media": { "type": "img", "src": "img/guitar.jpg", "alt": "吉他新手課程地圖首頁" },
+      "link": "https://chunghueitsao.github.io/guitar-curriculum/",
+      "host": "github.io/guitar-curriculum"
+    },
+    {
+      "id": "video",
+      "cat": "content",
+      "title": "AI 影片製作流水線",
+      "status": "測試中",
+      "stack": "Python・Gemini・ffmpeg",
+      "summary": "從參考分析到上架文案，把影片製作變成固定流程。",
+      "how": "Gemini 分析畫面、產生提示詞和圖片，再轉成影片、寫 SEO 文案；預設只試跑，上架前人工審核。",
+      "help": "每個步驟都能單獨重跑，品質不穩的地方可以只改那一段。",
+      "media": { "type": "ui", "ui": "video" },
+      "link": null
+    }
+  ]
+}

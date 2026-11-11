@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-Hant" class="js-off">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tim｜AI 作品集</title>
+<meta name="description" content="專案經理 Tim 帶 AI 做出的 8 件 side project：每件都寫清楚 AI 怎麼做、帶來什麼幫助。">
+<meta name="theme-color" content="#151a22">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#work">跳到作品</a>
+
+<header class="nav">
+  <div class="container nav-in">
+    <a class="brand" href="#top" aria-label="回到頂端">
+      <span class="brand-name">TIM<i aria-hidden="true"></i></span>
+      <span class="brand-sub">AI Builder・PM</span>
+    </a>
+    <nav class="nav-links" aria-label="主選單">
+      <a href="#work">作品專區</a>
+      <a href="#how">AI 協作心法</a>
+      <a href="#about">關於我</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="#contact">與我聯繫</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero container">
+    <div class="hero-text reveal">
+      <h1>PM 帶 AI，<br>把想法<span class="mark">做成產品</span></h1>
+      <p class="lead">我是 Tim，專案經理。我負責定義問題、做決定；Claude Code、Gemini 負責寫程式、查資料、出草稿。下面 8 件作品都在實際運作中。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#work">看作品<span aria-hidden="true"> ↓</span></a>
+        <a class="btn btn-ghost" href="#how">我怎麼帶 AI</a>
+      </div>
+    </div>
+
+    <figure class="log reveal" style="--d:150ms" aria-label="這個作品集的 AI 協作紀錄">
+      <div class="win-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="log-body">
+        <p class="log-title"><i aria-hidden="true"></i>這個作品集是怎麼做出來的</p>
+        <ol class="log-steps">
+          <li class="done"><b>說目標</b>「想做一個作品集給面試官看，要注意個資。」</li>
+          <li class="done"><b>部門意見</b>設計、內容、隱私、求職四個 AI 部門各給建議</li>
+          <li class="done"><b>我決定</b>收錄 8 件作品、分 4 類，視覺沿用課程官網</li>
+          <li class="now"><b>驗收</b>桌機、手機實測截圖，通過才上線</li>
+        </ol>
+        <div class="log-foot">
+          <span>你正在看的這一頁</span>
+          <span class="badge">上線中</span>
+        </div>
+      </div>
+    </figure>
+  </section>
+
+  <section class="work container" id="work">
+    <div class="work-head">
+      <div>
+        <h2 class="rv">作品專區</h2>
+        <p class="sub">先看每件作品 AI 怎麼做、帶來什麼幫助，有興趣再開啟。</p>
+      </div>
+      <div class="filters" role="group" aria-label="依分類篩選" data-filters></div>
+    </div>
+    <div class="grid" data-grid aria-live="polite">
+      <noscript><p class="sub">作品清單需要開啟 JavaScript 才能顯示。</p></noscript>
+    </div>
+  </section>
+
+  <section class="how" id="how">
+    <div class="container">
+      <h2 class="rv">我怎麼帶 AI 做事</h2>
+      <p class="sub">把 AI 當成一整個團隊：我是做決定的人，它們負責討論、實作和檢查。</p>
+      <ol class="steps">
+        <li class="rv" style="--c:var(--u1);--d:0ms">
+          <h3>說目標</h3>
+          <p>用一句話講清楚要什麼、給誰用、有什麼限制。AI 團隊的各部門先提出意見和風險。</p>
+        </li>
+        <li class="rv" style="--c:var(--accent);--d:90ms">
+          <h3>做決定</h3>
+          <p>AI 給一個明確建議和待確認清單，由我拍板；決定和原話都記進專案紀錄，下次接得上。</p>
+        </li>
+        <li class="rv" style="--c:var(--good);--d:180ms">
+          <h3>驗收</h3>
+          <p>改完要在桌機和手機實測截圖。對外公開、付款、送出這類動作，一定先經過我同意。</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="about container" id="about">
+    <h2 class="rv">關於我</h2>
+    <div class="about-body rv" style="--d:90ms">
+      <p>我是 Tim，現在是專案經理。大學讀視覺傳達設計，後來受過前端工程訓練，所以看得懂設計稿，也看得懂程式。</p>
+      <p>這兩年我把 AI 當成團隊來用：用 Claude Code 規劃、寫程式、查證，再用 Gemini、Codex 交叉檢查。我的重點不在寫程式本身，而在<b>把問題拆清楚、做對決定、驗收結果</b>。這也是我在專案管理上每天在做的事。</p>
+    </div>
+  </section>
+</main>
+
+<footer class="contact" id="contact">
+  <div class="container contact-in">
+    <div>
+      <h2 class="rv">面試時，<span class="mark">現場示範</span>給你看</h2>
+      <p class="sub">想看哪件作品實際怎麼運作，都可以當場操作。</p>
+    </div>
+    <ul class="links rv" style="--d:90ms">
+      <li><a class="btn btn-primary" href="#contact" data-todo="linkedin">LinkedIn</a></li>
+      <li><a class="btn btn-ghost" href="#contact" data-todo="104">104 履歷</a></li>
+      <li><a class="btn btn-ghost" href="https://github.com/ChungHueiTsao" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </div>
+  <div class="container legal">
+    <span>© 2026 Tim</span>
+    <span data-updated>作品資料更新日期：—</span>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
